@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo"></div>
+    <div id="demo2"></div>
+    <div id="demo3"></div>
+    
+
+
+    <button onclick="statechange()">load data</button>
+    <button onclick="statechange1()">statechange</button>
+    <button onclick="statechange2()">statechange2</button>
+
+    <button onclick="androidback()">back</button>
+
+
+    <script>
+        var state;
+        var demo = document.getElementById('demo')
+        var demo2 = document.getElementById('demo2')
+        var demo3 = document.getElementById('demo3')
+
+        function statechange() {
+
+            demo.innerHTML = "Hi demo div"
+
+            const url = new URL(window.location);
+            url.searchParams.set('foo', 'bar');
+
+            state = { 'a': 'demo1' }
+            window.history.pushState(state, 'hhhhhh', url);
+            // window.location.hash = 'demo'
+        }
+
+        function statechange1() {
+            const url = new URL(window.location);
+            url.searchParams.set('num', 'bar2');
+
+            state = { 'a': 'demo2' }
+            window.history.pushState(state, 'jjjjjjj', url);
+
+            //window.location.hash = 'demo2'
+            demo2.innerHTML = "Hi demo2 div"
+
+
+        }
+
+        function statechange2() {
+            const url = new URL(window.location);
+            url.searchParams.set('numt', 'bart3');
+
+            state = { 'a': 'demo3' }
+            window.history.pushState(state, 'jjjjjjj', url);
+
+            //window.location.hash = 'demo2'
+            demo3.innerHTML = "Hi demo3 div"
+
+
+        }
+
+        const androidback = () => {
+            window.history.go(-1);
+            var key = history.state.a
+            switch (key) {
+                case 'demo1':
+                    demo.innerHTML = ''
+                    break;
+                case 'demo2':
+                    demo2.innerHTML = ''
+                    break;
+                case 'demo3':
+                    demo3.innerHTML = ''
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        var last = true;
+        window.onpopstate = myPopState
+
+        function myPopState(event) {
+                if (event && event.state) {
+
+                    console.log(event.timeStamp)
+                }
+
+                if (last) {
+                    console.log(state)
+                    state = history.state
+                    last = false
+                    
+                } else {
+                    state = history.state
+                    console.log(state)
+                }
+                
+
+                var key = state.a
+                switch (key) {
+                    case 'demo1':
+                        demo.style.display = 'none'
+
+                        break;
+                    case 'demo2':
+                        demo2.style.display = 'none'
+                        break;
+                    case 'demo3':
+                        demo3.style.display = 'none'
+                        break;
+                        case 'null':
+                        alert(null)
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+
+    window.addEventListener("popstate", function () {
+        // if a back or forward button is clicked, do whatever, like alert or anything
+
+        console.log('llllllllll')
+
+    })
+
+    window.addEventListener('hashchange', function (e) {
+            var hash = window.location.hash;
+            if (hash === 'event-1') {
+                // ...
+            }
+            console.log('bbbbbbb')
+});
+
+    // if (window.history && history.pushState) { // check for history api support
+    //     window.addEventListener('load', function () {
+    //         // create history states
+    //         history.pushState(-1, null); // back state
+    //         history.pushState(0, null); // main state
+    //         history.pushState(1, null); // forward state
+    //         history.go(-1); // start in main state
+
+    //         this.addEventListener('popstate', function (event, state) {
+    //             // check history state and fire custom events
+    //             if (state = event.state) {
+    //                 event = document.createEvent('Event');
+    //                 event.initEvent(state > 0 ? 'next' : 'previous', true, true);
+    //                 this.dispatchEvent(event);
+    //                 // reset state
+    //                 history.go(-state);
+    //             }
+    //         }, false);
+    //     }, false);
+    // }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Pali Dictionary</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script src="./theme.js"></script>
+		
+<link rel="stylesheet" href="./dictionarystyle.css">
+<script src="./dictionary/pbd.js"></script>
+<script src="./dictionary/pbd.js"></script>
+<script src="./dictionary/ped.js"></script>
+<script src="./dictionary/ppd.js"></script>
+<script src="./dictionary/cped.js"></script>
+<script src="./dictionary/cepd.js"></script>
+
+ <div id="di"></div>
+<script>
+var URL = 'file:///data/data/org.kalpataruboi.siilavanta.tipitaka/tipitaka/dictionary/'
+var PC = './dictionary/'
+
+var di = document.getElementById('di')
+
+
+const loadjs = (id, file)=>{
+	var script = document.createElement('script')
+	script.setAttribute('id', `${id}`)
+	script.src =  `${PC + file}`
+	di.appendChild(script)
+
+}
+
+
+
+
+		
+		var Location_android = 'file:///data/data/org.kalpataruboi.siilavanta.tipitaka/tipitaka/dictionary/'
+		var Location_pc = 'file:///C:/Users/siilavanta/Documents/dictionary/'
+		var divice = navigator.userAgent.toLocaleLowerCase()
+		var script = document.createElement('script')
+		
+		const loadfile = (file)=>{
+			
+			if(divice.indexOf('android') > -1){
+				script.src = `${Location_android + file}.js`
+				document.head.appendChild(script)
+			}else if(divice.indexOf('iphone') > -1){
+				script.src = `${Location_pc + file}.js`
+				document.head.appendChild(script)
+			}else{
+				script.src = `${Location_pc + file}.js`
+				document.head.appendChild(script)
+			}
+		}
+var filename = ['ped', 'cped', 'ppd', 'cepd', 'pbd']
+
+	</script>
+</head>
+<style>
+#virtual_key{
+	width: 100%;
+	bottom: 0px;
+	position: fixed;
+	background-color: gray;
+}
+.row{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.row span{
+cursor: pointer;
+padding: 5px 10px;
+border-radius: 5px;
+color: white;
+}
+.row span:hover{
+background-color: aliceblue;
+color: black;
+}
+</style>
+
+<body>
+	<div id="dictionary">
+<div id="dicmain">
+	<div id="actionbar">
+		<div id="actionbarleft">
+			<div id="backbtn" class="leftitem"><i class="material-icons">&#xe5c4;</i></div>
+			<div class="leftitem"><span id="actionbar_title">পালি অভিধান</span></div>
+		</div>
+		<div id="actionbarright">
+			<div class="rightitem" id="setting"><i class="ic_setting material-icons">&#xe8b8;</i></div>
+			<div class="rightitem"><i class="navgi_ic material-icons">&#xe5d4;</i></div>
+		</div>
+	</div>
+
+	<div id="dictab">
+		<div onclick="dicactive(event, 'dic_pbd', 'resultbar_pbd')" id="dic_pbd_btn" class="dicitem ">পালি-বাংলা</div>
+		<div onclick="dicactive(event, 'dic_ped', 'resultbar_ped')" id="dic_ped_btn" class="dicitem dicActive">পালি-ইংরেজি</div>
+		<div onclick="dicactive(event, 'dic_epd', 'resultbar_epd')" id="dic_epd_btn" class="dicitem">ইংরেজি-পালি</div>
+	</div>
+	<div id="dicoutput">
+		<div class="dic" id="dic_pbd">
+
+			<div class="inputbar" id="inputbar_pbd">
+				<div class="inputbar_item" id="keyboard"><i class="material-icons">keyboard</i></div>
+				<input onkeyup="pbdfun(event)"  class="inputbar_item input" id="inputpbd" placeholder="পালি শব্দ খোঁজ করুন">
+				<div class="inputbar_item" id="history_pbd"><i class="material-icons">history</i></div>
+				<div class="inputbar_item" id="favourite_pbd"><i class="material-icons" style="color:pink">favorite</i></div>
+			</div>
+			
+		</div>
+
+		<div style="display: block;" class="dic" id="dic_ped">
+			<div  class="inputbar" id="inputbar_ped">
+				<div class="inputbar_item" id="keyboard"><i class="material-icons">keyboard</i></div>
+				<input onkeyup="pedfun(event)" class="inputbar_item input" id="inputped" placeholder="পালি শব্দ খোঁজ করুন">
+				<!-- <div class="inputbar_item" id="searchbtn"><i class="material-icons">&#xe8b6;</i></div> -->
+				<div class="inputbar_item" id="history_ped"><i class="material-icons">history</i></div>
+				<div class="inputbar_item" id="favourite_ped"><i class="material-icons" style="color:pink">favorite</i></div>
+				<div class="inputbar_item" id="endicfilter"><i class="material-icons">sort</i>
+					<div id="palidic_option">
+						<div><input onclick="onlyOne(this)" id="option_ped" type="checkbox" class="pdic_item"><span class="name_ped">PED : Full Pāli-English</span></div>
+						<div><input onclick="onlyOne(this)" id="option_cped" type="checkbox" class="pdic_item"><span class="name_cped">CPED : Concise Pāli-English</span></div>
+						<div><input onclick="onlyOne(this)" id="option_ppd" type="checkbox" class="pdic_item"><span class="name_ppd">PPD : Pāli Proper Names</span></div>
+						<div><input onclick="onlyOne(this)" id="option_All" type="checkbox" class="pdic_item"><span class="name_all">All Pāli Dictionary</span></div>
+					</div>	
+				</div>
+			</div>
+			
+		</div>
+		<div class="dic" id="dic_epd">
+			<div id="inputbar_epd">
+				<div class="inputbar_item" id="keyboard"><i class="material-icons">keyboard</i></div>
+				<input onkeyup="epdfun(event)" class="inputbar_item input" id="inputepd" placeholder="Search">
+				<div class="inputbar_item" id="history_epd"><i class="material-icons">history</i></div>
+				<div class="inputbar_item" id="favourite_epd"><i class="material-icons" style="color:pink">favorite</i></div>
+			</div>
+			
+		</div>
+
+	</div>
+	
+</div> <!-- dicmain -->
+
+<div class="result_bar" id="resultbar_pbd">
+	<div id="result_list_pbd"></div>
+	<div id="result_detail_pbd"></div>
+</div>
+
+
+<div style="display: block;" class="result_bar" id="resultbar_ped">
+
+	<div id="result_pi_en_list">
+		<div id="pedid">
+			<p class="p_en_name">PED </p>
+			<div id="result_list_ped"></div>
+		</div>
+		
+		<div id="cpedid">
+			<p class="p_en_name">CPED </p>
+			<div id="result_list_cped"></div>
+		</div>
+		<div id="ppdid">
+			<p class="p_en_name">PPD </p>
+			<div id="result_list_ppd"></div>
+		</div>
+	</div>
+	<div id="viewAllbtn">সবগুলো দেখুন</div>
+	
+	<div id="result_pi_en_details">
+		<div id="ped_d">
+			<p class="dicTile">Full Pāli-English</p>
+			<div id="result_detail_ped"></div>
+		</div>
+		<div id="cped_d">
+			<p class="dicTile">Concise Pāli-English</p>
+			<div id="result_detail_cped"></div>
+		</div>
+		<div id="ppd_d">
+			<p class="dicTile">Pāli Proper Names</p>
+			<div id="result_detail_ppd"></div>
+		</div>
+
+	</div>
+</div>
+
+
+<div class="result_bar" id="resultbar_epd">
+	<div id="result_list_epd"></div>
+	<div id="result_detail_epd"></div>
+</div>
+
+<div style="display: none;" id="virtual_key">
+	<div id="sign_div" class="row">
+
+	</div>
+<div style="display: none;" id="shift">
+	
+	
+</div>
+
+<div  style="display: none;" id="nonshift">
+
+	<div class="row">
+		<span class="key" onclick="softkey('ঙ')">ঙ</span>
+		<span class="key" onclick="softkey('য')">য</span>
+		<span class="key" onclick="softkey('ড')">ড</span>
+		<span class="key" onclick="softkey('প')">প</span>
+		<span class="key" onclick="softkey('ট')">ট</span>
+		<span class="key" onclick="softkey('চ')">চ</span>
+		<span class="key" onclick="softkey('জ')">জ</span>
+		<span class="key" onclick="softkey('হ')">হ</span>
+		<span class="key" onclick="softkey('গ')">গ</span>
+		<span class="key" onclick="softkey('ড়')">ড়</span>
+		<span class="key" onclick="backspace()">del</span>
+
+	</div>
+
+	<div class="row">
+		<span class="key" onclick="softkey('ঈ')">ঈ</span>
+		<span class="key" onclick="softkey('উ')">উ</span>
+		<span class="key" onclick="softkey('ই')">ই</span>
+		<span class="key" onclick="softkey('অ')">অ</span>
+		<span class="key" onclick="softkey('আ')">আ</span>
+		<span class="key" onclick="softkey('ঊ')">ঊ</span>
+		<span class="key" onclick="softkey('ব')">ব</span>
+		<span class="key" onclick="softkey('ক')">ক</span>
+		<span class="key" onclick="softkey('ত')">ত</span>
+		<span class="key" onclick="softkey('দ')">দ</span>
+		<span class="key" onclick="softkey('ৰ')">ৰ</span>
+		<span class="key" onclick="softkey('ল়')">ল়</span>
+
+	</div>
+	<div class="row">
+		<span class="key" onclick="softkey('ং')">ং</span>
+		<span class="key" onclick="softkey('য়')">য়</span>
+		<span class="key" onclick="softkey('ঢ')">ঢ</span>
+		<span class="key" onclick="softkey('ফ')">ফ</span>
+		<span class="key" onclick="softkey('ঠ')">ঠ</span>
+		<span class="key" onclick="softkey('ছ')">ছ</span>
+		<span class="key" onclick="softkey('ঝ')">ঝ</span>
+		<span class="key" onclick="softkey('ঞ')">ঞ</span>
+		<span class="key" onclick="softkey('ঘ')">ঘ</span>
+		<span class="key" onclick="softkey('ঢ়')">ঢ়</span>
+		
+
+	</div>
+
+	<div class="row">
+		<span class="key" onclick="softkey('ভ')">ভ</span>
+		<span class="key" onclick="softkey('খ')">খ</span>
+		<span class="key" onclick="softkey('থ')">থ</span>
+		<span class="key" onclick="softkey('ধ')">ধ</span>
+		<span class="key" onclick="softkey('ল')">ল</span>
+		<span class="key" onclick="softkey('ণ')">ণ</span>
+		<span class="key" onclick="softkey('ষ')">ষ</span>
+		<span class="key" onclick="softkey('শ')">ষ</span>
+		
+
+	</div>
+	<div class="row">
+		<span class="key shift" onclick="softkey('shift')">shift</span>
+		<span class="key" onclick="softkey('ঁ')">ঁ</span>
+		<span class="key" onclick="softkey('ও')">ও</span>
+		<span class="key" onclick="softkey('এ')">এ</span>
+		<span class="key space" onclick="softkey(' ')">_____</span>
+		<span class="key" onclick="softkey('র')">র</span>
+		<span class="key" onclick="softkey('ন')">ন</span>
+		<span class="key" onclick="softkey('স')">স</span>
+		<span class="key" onclick="softkey('ম')">ম</span>
+		
+
+	</div>
+</div>
+</div>
+<div id="setting_page">
+	
+</div>
+</div>
+<script src="./lib/dom/makedom.js"></script>
+<script src="./maindic.js"></script>
+<script src="./maindichelper.js"></script>
+</body>
+
+</html>

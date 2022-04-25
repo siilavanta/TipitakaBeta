@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="./lib/dom/makedom.js"></script>
+</head>
+
+<body>
+    <div class="chapter">
+        <div class="chaptxt">
+            <p class="bodytext">mm 1</p>
+            <p class="bodytext">mmmmm</p>
+            <p class="title">i am title1</p>
+            <p class="bodytext">BBBBBBBBBBBBB 1</p>
+            <p class="bodytext">bbbbbbbbbbbbbbb</p>
+            <p class="subtxt">subtxt1</p>
+            <p class="bodytext">btx 1</p>
+            <p class="bodytext">btx 11</p>
+            <p class="subtxt">subtxt1a</p>
+            <p class="bodytext">btx 1a</p>
+            <p class="bodytext">btx 11a</p>
+
+            <p class="title">i am title2</p>
+            <p class="bodytext">btgggggggggx 11a</p>
+            <p class="bodytext">btgggggggggx 11a</p>
+
+            <p class="title">i am title2</p>
+            <p class="title">i am title2</p>
+            <p class="subtxt">subtxt1b <a href="">limk</a></p>
+            <p class="subtxt">subtxt1b</p>
+            <p class="bodytext">btx2 1b</p>
+            <p class="bodytext">btx2 1bb</p>
+            <p class="bodytext">btx2 1bbb</p>
+        </div>
+    </div>
+
+    <div class="chapter">
+        <div class="chaptxt">
+            <p class="title">i am title3</p>
+            <p class="subtxt">subtxt 3</p>
+            <p class="bodytext">btx3 1</p>
+            <p class="bodytext">btx3 11</p>
+            <p class="bodytext">btx3 111</p>
+        </div>
+    </div>
+    <h1></h1>
+    <ul id="birds">
+        <li>Orange-winged parrot</li>
+        <li class="endangered">Philippine eagle</li>
+        <li>Great white pelican
+            <p id="000"></p>
+        </li>
+        <li class="endangered">Philippine hhheagle</li>
+
+    </ul>
+
+    <script type="text/javascript">
+        var birds = document.getElementsByTagName('li');
+
+        for (var i = 0; i < birds.length; i++) {
+            if (birds[i].matches('Gre')) {
+                //  console.log('The ' + birds[i].textContent + ' is endangered!');
+            }
+        }
+
+        var birdss = document.querySelector('#birds')
+
+    </script>
+</body>
+
+
+<script type="text/javascript">
+   // var chaptxt = document.querySelector('.chaptxt')
+
+    // console.log(chaptxt.children[0].className)
+    // var chaptxtObj = {}
+    // var objkey;
+    // var i = 0
+    // var child = chaptxt.children[i]
+    // var run = false;
+    // var stop = chaptxt.children.length;
+    // var title = document.querySelectorAll('.title')
+    // var tlength = title.length;
+
+    // var classname = chaptxt.children[i].className
+    // while (run) {
+
+
+    //     if (classname == 'title') {
+    //         var key = 'title' + (tlength - (tlength - 1))
+    //         chaptxtObj[key] = []
+    //         objkey = chaptxtObj[key]
+    //         tlength--;
+
+    //     } else {
+    //         objkey.push(child.innerHTML)
+    //     }
+    //         // console.log(classname)
+    //      if(chaptxt.children.length == 0){
+    //         console.log(false)
+    //         run = false;
+    //     }
+
+    //     chaptxt.children[i].remove()
+    //     i++
+    // }
+
+    // console.log(chaptxtObj)
+    // var h = document.querySelector('h1')
+    // console.log(h.children.length)
+    // var obj = {}
+    // var subhead = {}
+    // var bodytext = {}
+    // var titleCount = 0
+    // var subheadCount = 0
+    // var bodytextCount = 0
+
+    // var arr = []
+    // var p = chaptxt.querySelectorAll('p')
+    // for (let i = 0; i < p.length; i++) {
+    //     var pSingle = p[i];
+    //     var classTxt = p[i].className
+
+    //     var key = 'title' + titleCount;
+    //     var subkey = 'subhead' + subheadCount;
+    //     var bodytextkey = 'bt' + bodytextCount;
+
+    //     if (classTxt == 'title') {
+    //         obj[key] = {
+    //             'A_title': p[i].textContent
+    //         }
+    //         subhead = obj[key]
+    //         titleCount++
+    //     } else if (classTxt == 'subtxt') {
+    //         subhead[subkey] = {
+    //             "subhead": p[i].textContent,
+    //             "bodytxt": []
+                
+    //         }
+    //         subheadCount++
+    //         subhead[subkey].bodytxt.push(arr)
+    //         arr = []
+    //     } else {
+    //            bodytext[bodytextkey] = p[i].textContent
+    //            bodytextCount++
+    //         console.log(p[i].textContent)
+
+            
+    //         arr.push(p[i].textContent)
+    //     }
+
+    // }
+
+
+    // var bld = document.querySelectorAll('.subtxt')
+
+    // for (var k = 0; k < bld.length; k++) {
+    //     var txt = bld[k].innerHTML
+    //     bld[k].insertAdjacentHTML('afterend', `<b>${txt}</b>`)
+    //     bld[k].remove()
+
+
+    // }
+</script>
+
+
+<script>
+
+    var chaptxt = document.querySelectorAll('.chaptxt')
+    var title = document.querySelectorAll('.title')
+    title.forEach(function(el, i){
+        el.id = 'tl_' + (i + 1);
+    })
+
+  //  chaptxt[0].getAttribute('classname')
+    function setInTitle(mainElmns){
+        
+    }
+
+    var mainObj = {};
+
+    var noTitle = true;
+    var titleTxbBody;
+
+    // old element querying
+    var mainElmns = chaptxt
+    for (var i = 0; i < mainElmns.length; i++) {
+            var child = mainElmns[i];
+            var sibling = child.querySelectorAll('p')
+
+            console.log(child)
+
+            for (var j = 0; j < sibling.length; j++) {
+                if (sibling[j].className == 'title') {
+                    
+
+                    var titleBody = makeElement('div', {
+                        id: sibling[j].id ? sibling[j].id : '',
+                        class: 'tl',
+                        innerHTML: makeElement('h2', {
+                            innerHTML: sibling[j].textContent
+                        }).outerHTML
+                    }).outerHTML
+
+                    sibling[j].insertAdjacentHTML('afterend', titleBody)
+                    sibling[j].remove()
+                    //console.log(titleBody)
+                    titleTxbBody = document.getElementById(sibling[j].id)
+                    console.log(titleTxbBody)
+                }else{
+                    if(noTitle){
+                        child.insertAdjacentHTML('afterbegin', makeElement('div', {
+                            id: 'ntl_' + (i+1),
+                            class: 'ntl'
+                        }).outerHTML)
+                        noTitle = false
+                        var ntl = document.getElementById('ntl_' + (i+1))
+                        //console.log(ntl)
+                        
+                        // ntl.insertAdjacentHTML('afterbegin', sibling[j].outerHTML)
+                        // sibling[j].remove()
+
+                    }
+                    try {
+                        titleTxbBody.insertAdjacentHTML('beforeend', sibling[j].outerHTML)
+                        sibling[j].remove()
+                    } catch (error) {
+                         ntl.insertAdjacentHTML('beforeend', sibling[j].outerHTML)
+                        sibling[j].remove()
+                    }
+                }
+            }
+
+        }
+
+
+</script>
+</html>

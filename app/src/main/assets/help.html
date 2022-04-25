@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>help</title>
+</head>
+<style>
+  @font-face {
+    font-family: 'AdorshoLipi';
+    src: url('./Adorsholipi.ttf');
+  }
+
+  @font-face {
+    font-family: 'TimeRoman';
+    src: url('./TimeRoman.otf');
+  }
+
+  html {
+    font-size: 16px;
+
+  }
+
+  body {
+    src: url('./Adorsholipi.ttf');
+    font-family: "AdorshoLipi", TimeRoman;
+    margin: auto;
+    background-color: aliceblue;
+  }
+
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./google.woff2) format('woff2');
+  }
+
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+
+    /* -webkit-font-feature-settings: 'liga'; */
+    -webkit-font-smoothing: antialiased;
+  }
+
+
+  .title {
+    text-align: center;
+    padding: 5px;
+  }
+
+
+  #actionbar {
+    background-color: rgb(213, 224, 218);
+    position: fixed;
+    margin: auto;
+    display: flex;
+    justify-self: start;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    zoom: 0%;
+  }
+
+  #actionbar span {
+    padding: 5px 10px 5px 15px;
+    font-size: 24px;
+  }
+
+  #actionbar span:hover {
+    background-color: aqua;
+    cursor: pointer;
+  }
+</style>
+
+<body>
+
+  <div id="actionbar">
+    <span id="setback"><i class="material-icons">&#xe5c4;</i> </span>
+    <span id="action_help">help</span>
+  </div>
+  <br><br>
+  <h1 class="title">সাহায্য</h1>
+  <div id="helpmain_bn">
+
+  </div>
+
+  <div id="helpmain_en">
+
+  </div>
+
+  <script>
+    var setback = document.getElementById('setback')
+    var helpmain_bn = document.getElementById('helpmain_bn')
+    var helpmain_en = document.getElementById('helpmain_en')
+    var action_help = document.getElementById('action_help')
+    // var help = document.querySelectorAll('.help')
+    var language = window.localStorage.getItem('applanguid')
+    if (language === 'appbengali') {
+      helpmain_bn.style.display = 'block'
+      action_help.innerHTML = 'সাহায্য'
+    }
+    if (language === 'appenglish') {
+      helpmain_en.style.display = 'block'
+      action_help.innerHTML = 'help'
+
+    } else {
+      if (language === 'appbengali') {
+        helpmain_bn.style.display = 'block'
+        action_help.innerHTML = 'সাহায্য'
+      } else {
+        helpmain_en.style.display = 'block'
+        action_help.innerHTML = 'help'
+      }
+    }
+    var actionbar = document.getElementById('actionbar')
+    var body = document.querySelector('body')
+    const themefun = (hbg, bg, color) => {
+      actionbar.style.background = `${hbg}`
+      actionbar.style.color = `${color}`
+      body.style.background = `${bg}`
+      body.style.color = `${color}`
+    }
+    var theme = window.localStorage.getItem('themeid')
+
+    switch (theme) {
+      case 'day-light':
+        themefun('', '', '')
+        break;
+      case 'night':
+        themefun('black', 'rgb(63, 62, 62)', '#adabab')
+        break;
+      case 'chocolate':
+        themefun('chocolate', 'rgb(244 227 207)', '')
+        break;
+      case 'orange':
+        themefun('orange', 'rgb(255 252 228)', '')
+        break;
+      case 'teal':
+        themefun('teal', '#e2f5f5', '')
+        break;
+      case 'brown':
+        themefun('brown', '#f5d6e2', '')
+    }
+
+    setback.addEventListener('click', () => {
+      BackPress.backpress();
+    })
+  </script>
+</body>
+
+</html>

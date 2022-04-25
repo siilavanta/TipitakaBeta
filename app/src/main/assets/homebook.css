@@ -1,0 +1,60 @@
+  /* home label */
+  .homebookName_panel > .homebookName_panel2 {
+    font-size: 1em;
+    padding: 5px;
+    display: none;
+    padding-left: 20px;
+    cursor: pointer;
+    
+  }
+  .homebookName_panel > .pitakaName{
+    font-size: 1.15em;
+    padding: 5px;
+    padding-left: 1px;
+    border-bottom: 1.5px solid gray;
+  }
+  .homebookName_panel > li {
+    list-style: none;
+    font-size: 1em;
+    margin-left: 20px;
+    padding: 5px;
+    display: none;
+    cursor: pointer;
+    border-bottom: 1px solid lightgray;
+  }
+
+  .homebookName_panel2 > div{
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
+    font-size: 1em;
+  }
+  .homebookName_panel2 > div:hover{
+    background-color: rgb(171, 208, 223);
+  }
+  .homebookName_panel2 > li {
+    list-style: none;
+    font-size: 0.95em;
+    margin-left: 20px;
+    padding: 5px;
+    display: none;
+    cursor: pointer;
+    border-bottom: 1px solid lightgray;
+  }
+
+  .homebookName_panel2 > li:hover{
+    background-color: rgb(171, 208, 223);
+  }
+   
+  .homebookName_panel2 > .homeactive2{
+    background-color: rgb(171, 208, 223);
+    display: block;
+  }
+  .homebookName_panel .show {
+    display: block;
+  }
+  
+  .homebookName_panel2 .showhome {
+    display: block;
+  }
+  
+  

@@ -1,0 +1,28 @@
+@media only screen and (max-width: 360px) {
+    #sidebar {
+      width: 80%;
+    }
+    #appname{
+      width: inherit;
+    }
+    #sidebar> .bookName_panel{
+      width: 80%;
+    }
+    .select_language{
+      width: 80%;
+    }
+    #table_main{
+      width: 80%;
+    }
+  }
+
+  @media only screen and (max-height : 460px){
+    #more{
+        height: 100%;
+    }
+  }
+  @media only screen and (max-height : 460px){
+    .ftn{
+      max-height: 60%;
+    }
+  }

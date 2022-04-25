@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .f1-li-data,
+        .f2-li-data {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <section class="vin-mula">
+            <h1 title="vin (mula)" onclick="toggleF1(event, 'f1_mula_vin')" class="f1-li">vin pitaka (mula)</h1>
+            <ul view="false" id="f1_mula_vin" class="f1-li-data">
+                <h2 id="f2_mula_vin_title" onclick="toggleF2(event, 'f2_mula_vin')" class="f2-li">mula books</h2>
+                <ul view="false" id="f2_mula_vin">
+                    <li>fdgvfdg</li>
+                    <li>fdgvfdg</li>
+                    <li>fdgvfdg</li>
+                    <li>fdgvfdg</li>
+
+                </ul>
+            </ul>
+        </section>
+
+        <section class="sutta-mula">
+            <h1 title="sutta (mula)" onclick="toggleF1(event, 'f1_mula_sutta')" class="f1-li">sutta pitaka (mula)</h1>
+            <ul view="false" id="f1_mula_sutta" class="f1-li-data">
+                <h2 id="f2_mula_sutta_dn_title" onclick="toggleF2(event, 'f2_mula_sutta_dn')" class="f2-li">dn</h2>
+                <ul view="false" id="f2_mula_sutta_dn" class="f2-li-data">
+                    <li>dn1</li>
+                    <li>dn2</li>
+                    <li>dn3</li>
+
+                </ul>
+                <h2 id="f2_mula_sutta_mn_title" onclick="toggleF2(event, 'f2_mula_sutta_mn')" class="f2-li">mn</h2>
+                <ul view="false" id="f2_mula_sutta_mn" class="f2-li-data">
+                    <li>mn1</li>
+                    <li>mn2</li>
+                    <li>mn3</li>
+
+                </ul>
+                <h2 id="f2_mula_sutta_sn_title" onclick="toggleF2(event, 'f2_mula_sutta_sn')" class="f2-li">sn</h2>
+                <ul view="false" id="f2_mula_sutta_sn" class="f2-li-data">
+                    <li>sn1</li>
+                    <li>sn2</li>
+                    <li>sn3</li>
+
+                </ul>
+                <h2 id="f2_mula_sutta_an_title" onclick="toggleF2(event, 'f2_mula_sutta_an')" class="f2-li">an</h2>
+                <ul view="false" id="f2_mula_sutta_an" class="f2-li-data">
+                    <li>an1</li>
+                    <li>an2</li>
+                    <li>an3</li>
+
+                </ul>
+                <h2 id="f2_mula_sutta_kn_title" onclick="toggleF2(event, 'f2_mula_sutta_kn')" class="f2-li">kn</h2>
+                <ul view="false" id="f2_mula_sutta_kn" class="f2-li-data">
+                    <li>kn1</li>
+                    <li>kn2</li>
+                    <li>kn3</li>
+
+                </ul>
+
+            </ul>
+        </section>
+        <section id="abhi-mula" class="abhi-mula">
+            <h1>abhi pitaka (mula)</h1>
+            <ul>
+
+            </ul>
+        </section>
+    </div>
+
+</body>
+
+<script src="./bookname.js"></script>
+<script src="./lib/dom/makedom.js"></script>
+<script>
+   
+    
+
+    var obj = {
+        class: 'pop',
+        id: 'll',
+        innerHTML: 'hello',
+        onclick: "ak()"
+    }
+
+    var elm = makeElement("p", obj)
+    var elmdiv = makeElement("div", { 
+        class: 'pop-parent',
+        id: 'good',
+        innerHTML: makeElement('p', {
+            class: 'pop',
+            id: 'll',
+            innerHTML: 'hello',
+            onclick: "akggggggggg()"
+        }).outerHTML
+    })
+    //elmdiv.innerHTML = elm.outerHTML
+    
+    var stl = makeElement('style', {
+        innerHTML: 'body{border: red 2px solid;}'
+        
+    })
+
+ 
+   
+    document.getElementById('abhi-mula').style.color = "green"
+    
+    document.head.appendChild(stl)
+
+    console.log(elmdiv)
+</script>
+
+</html>

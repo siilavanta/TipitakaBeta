@@ -1,0 +1,1 @@
+requested allocation 3081060 bytes, free space 2096508 bytes, window size 2097152 bytes

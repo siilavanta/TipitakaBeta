@@ -1,0 +1,105 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="2"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/webviewId1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>
+    <ProgressBar
+
+        android:layout_gravity="center"
+        android:id="@+id/progressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:id="@+id/layoutId"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:layout_weight="5"
+        android:visibility="gone"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" >
+
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:id="@+id/findbox"-->
+<!--            android:layout_weight="2"-->
+<!--            android:textSize="14dp"-->
+<!--            android:hint="এই পেইজে খুঁজুন"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:background="@drawable/edittext"/>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_weight="3"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_up"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_weight="1"-->
+<!--                android:id="@+id/prev"/>-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_down"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_weight="1"-->
+<!--                android:id="@+id/next"/>-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_close"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_weight="1"-->
+<!--                android:id="@+id/close"/>-->
+
+<!--        </LinearLayout>-->
+<!--       -->
+
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:focusable="true"-->
+<!--        android:focusableInTouchMode="true"-->
+<!--        android:id="@+id/conpareid"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="220dp"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:layout_weight="3"-->
+<!--        android:layout_gravity="top"-->
+<!--        android:visibility="visible"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <WebView-->
+<!--            android:id="@+id/popupdic"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--        </WebView>-->
+<!--    </LinearLayout >-->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|right"
+        android:tint="@android:color/white"
+        android:src="@drawable/ic_search"
+        app:backgroundTint="@color/colorPrimary"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

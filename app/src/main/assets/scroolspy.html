@@ -1,0 +1,153 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <style>
+            html, body {
+              height: 100%;
+              font-family: 'Merriweather', serif;
+            }
+            
+            #navbar {
+              background: #1E2640;
+              position: fixed;
+            }
+            section{
+                height: 600px;
+            }
+            
+            #home {
+              background: #F2B705;
+              color: #1E2640;
+            }
+            
+            #bio {
+              background: #F21B42;
+              color: #F2B705;
+            }
+            
+            #work {
+              background: #1E2640;
+              color: #F21B42;
+            }
+            
+            #contact {
+              background: black;
+              color: white;
+            }
+            
+            h1 {
+              font-size: 5em;
+            }
+            
+            .nav-item {
+              transition: background 200ms;
+            }
+            
+            .nav-link {
+              outline: none;
+            }
+            .active{
+                background-color: chartreuse;
+            }
+            </style>
+            <nav id="navbar" class="navbar fixed-top navbar-expand navbar-dark">
+              <div class="navbar-collapse">
+                <ul class="navbar-nav mx-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#home">home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#bio">bio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#work">work</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#contact">contact</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+            
+            <section id="home" class="hero-bg h-100">
+              <div class="container h-100">
+                <div class="row h-100 justify-content-center">
+                  <div class="col-lg-8 my-auto text-center">
+                    <h1><i class="fas fa-home"></i></h1>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="bio" class="hero-bg h-100">
+              <div class="container h-100">
+                <div class="row h-100 justify-content-center">
+                  <div class="col-lg-8 my-auto text-center">
+                    <h1><i class="fas fa-address-card"></i></h1>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="work" class="hero-bg h-100">
+              <div class="container h-100">
+                <div class="row h-100 justify-content-center">
+                  <div class="col-lg-8 my-auto text-center">
+                    <h1><i class="fas fa-briefcase"></i></h1>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="contact" class="hero-bg h-100">
+              <div class="container h-100">
+                <div class="row h-100 justify-content-center">
+                  <div class="col-lg-8 my-auto text-center">
+                    <h1><i class="fas fa-phone-square"></i></h1>
+                    
+                  </div>
+                </div>
+              </div>
+            </section>
+            <br><br>
+                    <br><br>
+                    <br><br><br><br>
+                    <br><br>
+                    <br><br>
+            <script>
+            const makeNavLinksSmooth = () => {
+              const navLinks = document.querySelectorAll( '.nav-link' );
+            
+              for ( let n in navLinks ) {
+                if ( navLinks.hasOwnProperty( n ) ) {
+                  navLinks[ n ].addEventListener( 'click', e => {
+                    e.preventDefault( );
+                    document.querySelector( navLinks[ n ].hash )
+                      .scrollIntoView( {
+                        behavior: "smooth"
+                      } );
+                  } );
+                }
+                console.log(navLinks[n])
+              }
+            }
+            
+            const spyScrolling = ( ) => {
+              const sections = document.querySelectorAll( '.hero-bg' );
+            
+              window.onscroll = ( ) => {
+                const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+            
+                for ( let s in sections )
+                  if ( sections.hasOwnProperty( s ) && sections[ s ].offsetTop <= scrollPos ) {
+                    const id = sections[ s ].id;
+                    document.querySelector( '.active' ).classList.remove( 'active' );
+                    document.querySelector( `a[href*=${ id }]` ).parentNode.classList.add( 'active' );
+                  }
+              }  
+            }
+            
+            makeNavLinksSmooth( );
+            spyScrolling( );
+            </script>
+    </body>
+</html>

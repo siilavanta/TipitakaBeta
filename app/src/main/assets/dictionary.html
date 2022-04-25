@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width">
+		<script src="./word.js"></script>
+</head>
+<style>
+	body {
+		margin: 0px;
+	}
+
+	#actionbar {
+		box-shadow: 1px 3px 4px 1px rgba(0,0,0,0.2);
+		width: 100vw;
+		height: 50px;
+		background: rgb(213, 224, 218);
+	}
+
+	#input {
+		display: block;
+		width: 96%;
+		height: 40px;
+		margin: 5px;
+	}
+
+	#result {
+		background-color: rgb(179, 221, 207);
+		margin: 15px;
+	}
+
+	.item {
+		font-size: 18px;
+		margin: 5px;
+		background-color: rgb(171, 149, 192);
+	}
+	li{
+		list-style: none;
+	}
+</style>
+
+<body>
+
+	<div id="actionbar">
+
+	</div>
+	<input type="search" id="input" placeholder="পালি শব্দ টািইপ করুন"
+		onkeyup="dictionary()"><button onclick="dictionary()">Search</button>
+	<div id="result">
+	</div>
+	<div id="count"></div>
+	<div id="out"></div>
+	<script type="text/javascript">
+
+		const dictionary = () => {
+			let input = document.getElementById('input')
+			let upval = input.value.toUpperCase();
+			let loval = input.value.toLowerCase()
+			let output = document.getElementById('out')
+			let count = document.getElementById('count')
+			let val = input.value
+			let isZero = (val === '');
+			let isLong = (val.length >= 20)
+
+			if (val.length) {
+				const isEmptyValue = (value) => {
+					if (value === '' || value === null || value === undefined) {
+						return true
+					} else {
+						output.innerHTML = 'Not match'
+						return false
+					}
+				}
+
+				let arr = []
+				let notMatch = isEmptyValue(val)
+				//console.log(notMatch)
+				let maxln = 10;
+				for (let i = 0; i < obj.length; i++) {
+					let isMatch = obj[i].startsWith(val)
+					if (notMatch) {
+						//output.innerHTML = 'Please type anything'
+					} else {
+						if (isMatch) {
+							arr.push(`<li onclick="showdetail('${obj[i]}')" class='item'> Index num: ${i} :  ${obj[i]}</li>`)
+							for (let j = 0; j < arr.length; j++) {
+								if (arr.length <= maxln) {
+									//count.innerHTML = 'Total found of ' + val + ': '+ arr.length
+									output.innerHTML = arr.join('')
+								}
+							}
+						}
+					}
+				}
+			}
+			if (isZero) {
+				output.innerHTML = '<button>Go to history.</button>'
+			}
+			if (isLong) {
+				output.innerHTML = 'Your type too long.....' + val.length
+			}
+		}
+		let showdetail = (name) => {
+			alert('You have click : ' + name + "\nComing soon.....")
+		}
+	</script>
+</body>
+
+</html>

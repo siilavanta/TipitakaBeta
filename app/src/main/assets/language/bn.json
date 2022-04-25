@@ -1,0 +1,29 @@
+{
+    "moreBtn": {
+        "setting": "বিশেষ অভিরুচি",
+        "aboutApp": "অ্যপটি সম্পর্কে",
+        "help": "সাহায্য নিন",
+        "rate": "রেটিং দিন",
+        "share": "শেয়ার করুন",
+        "update": "আপডেইট করুন",
+        "ourApp": "আমাদের অ্যাপসমূহ",
+        "note": "আমার নোট",
+        "bookmark": "বুকমার্ক সূচি"
+    },
+    "settings": {},
+    "appMain": {
+        "appName": "তিপিটক",
+        "publisher": "কল্পতরু",
+        "publisherAdd": "রাঙামাটি ৪৫০০, বাংলাদেশ",
+        "search": ""
+    },
+    "bookUtils": {
+        "contentTitle": "সূচিপত্র"
+    },
+    "dictionary": {
+        "": ""
+    },
+    "toast": {
+        "nullContent" : ""
+    }
+}

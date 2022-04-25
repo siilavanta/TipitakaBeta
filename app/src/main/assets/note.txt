@@ -1,0 +1,23 @@
+bodytxt = bt,
+title = tl,
+subhead = sh,
+subsubhead = ssh,
+
+centered = ct
+chaptxt = cht
+chapter = ch
+gatha = gt
+gathalast = gtl
+unindented = uit,
+indent = it
+hangnum = hn
+p ‍tag = #_
+
+new 
+chapter-haed = ch-h
+division search nexttime
+
+সুত্তনিপাত-অট্ঠকথা => new class seconddiv (দুতিযো ভাগো), booknamesub, mainauthor, seconddiv, chaphead, aboutauthor
+<p class="booknamesub">অট্ঠসালিনী নাম</p>
+<p class="chaphead"><span>দ্বিতীয় অংশ</span><span>অধ্যায়—১২</span>
+booknamesub
