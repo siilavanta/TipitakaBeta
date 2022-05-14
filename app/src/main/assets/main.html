@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title id="titlename">Tripitak</title>
+    <title id="titlename">Tipitaka</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- <script type="text/javascript" src="ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <textarea style="margin-top: 60px; display: none;" name="" id="dev" cols="30" rows="10"></textarea>
@@ -53,7 +53,7 @@
                 <div id="appnameleft">
                     <span class="item" id="appicon"><img height="35px" width="35px" src="./ic_launcher_round.png">
                     </span>
-                    <span class="item" id="app-title">Tpitaka</span>
+                    <span class="item" id="app-title">Tipitaka</span>
                 </div>
                 <div id="appnameright">
                     <span class="item" id="appnamehelp"><i class="material-icons">help_outline</i></span>
@@ -764,7 +764,7 @@
             <div id="search_container">
                 <div id="tipiinput"> <input class="inputitem" id="searchAnyting" type="search" placeholder="ত্রিপিটকে খুঁজুন">
                     <button id="searchbtn" class="inputitem" onclick="search()">Search</button> 
-                    <button class="inputitem"> <i class="material-icons 1" onclick="test(event)">settings</i></button>
+                    <!-- <button class="inputitem"> <i class="material-icons 1" onclick="test(event)">settings</i></button> -->
                     <span style="position: absolute; margin-left: 10px;" id="searchPendding">  </span>
                 </div>
                 <script>
@@ -925,7 +925,7 @@
                 <div id="searchFlter">
 
                     <div id="optionid"><input value="all" checked class="option" type="radio">সমগ্র ত্রিপিটক || <input value="nikaya"
-                            class="option" type="radio">নিদিষ্ট নিকায় || <input value="book" class="option" type="radio">নিদিষ্ট গ্রন্থ
+                            class="option" type="radio">নির্দিষ্ট নিকায় || <input value="book" class="option" type="radio">নির্দিষ্ট গ্রন্থ
                     </div>
                     <div id="all" style="display: flex;" class="selectionItem">
 
@@ -954,7 +954,7 @@
                         </div>
 
                         <div id="alllang">
-                            <label for="tipi">Choice language</label><br>
+                            <label for="tipi">Select language one</label><br>
                             <select onchange="allpitakaDiv(this, this.value); this.selectedindex = -1" class="languagesearch">
                                 <option class="allpitakaoption" selected="selected" value="pali">Pāli</option>
                                 <option class="allpitakaoption" value="bd">Bangla</option>
@@ -1025,7 +1025,10 @@
                                 <option value="mulabn_2_5">খুদ্দকনিকায় (বাংলা)</option>
                                 <option value="atthbn_2_5">খুদ্দকনিকায় অর্থকথা (বাংলা)</option>
                                 <option value="mulabn_3">অভিধর্মপিটক (বাংলা)</option>
+                                <option value="otherbn_1">বাংলা অন্যান্য</option>
                             </select>
+
+                           
                             <p>English mulapitaka</p>
                             <select class="nikayasearch" onchange="nikayaOne(this, this.value); this.selectedindex = -1">
                                 <option value=""><b>select one</b></option>

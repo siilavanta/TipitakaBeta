@@ -173,9 +173,9 @@ function setDicView(dicName, data, query) {
     
     if (!isNextOrPrev && (data.length !== 0)) {
         getPopHistory.push(query)
-        console.log(JSON.stringify(getPopHistory.hisWord))
+        //console.log(JSON.stringify(getPopHistory.hisWord))
         isNextOrPrev = true;
-        console.log("query" + query)
+       // console.log("query" + query)
     }
 
     function splitByVertical(data, count, ditails, dicTitle) {
@@ -221,7 +221,7 @@ function popHistory() {
 function push(word) {
     
     //  this.current++;
-    // same word prevent
+    // adjacent same word prevent
     if (this.hisWord[this.hisWord.length - 1] !== word) {
         this.hisWord[this.hisWord.length] = word;
     }
@@ -231,7 +231,7 @@ function push(word) {
             
             
         } else {
-            console.log("already  have " + el)
+           // console.log("already  have " + el)
         }
     })
     
@@ -246,13 +246,13 @@ function hasNext() {
     var c = this.current = this.nextPos;
     if (c < (this.hisWord.length - 1)) {
         var nextWord = this.hisWord[++this.nextPos]
-        console.log(nextWord)
+      //  console.log(nextWord)
         // console.log(this.current)
         isNextOrPrev = true;
         myClick({}, [nextWord])
         this.prevPos = this.nextPos - 1
     } else {
-        console.log('not found in next')
+       // console.log('not found in next')
         android.toast('No item in next')
     }
 
@@ -262,13 +262,13 @@ function hasPrevius() {
     var c = this.current = this.prevPos;
     if (c >= 0) {
         var prevWord = this.hisWord[this.prevPos--]
-        console.log(prevWord)
+       // console.log(prevWord)
         //console.log(this.current)
         isNextOrPrev = true;
         myClick({}, [prevWord])
         this.nextPos = this.prevPos + 1
     } else {
-        console.log('not found in previous')
+        //console.log('not found in previous')
         android.toast('No item in previous')
     }
 

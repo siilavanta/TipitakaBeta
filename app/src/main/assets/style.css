@@ -1052,5 +1052,8 @@ background-repeat: no-repeat;
     border-radius: 5px;
     outline: none;
     border: 1px solid royalblue;
+    font-size: 1.1em;
 }
-
+#searchAnyting{
+    font-size: 1.1em;
+}

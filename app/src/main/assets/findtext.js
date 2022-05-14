@@ -55,6 +55,7 @@ function getPitaka(pitakaName, key, callback) {
                     //console.log('mula')
                     if (bookKeyName[i].includes(key[0][0])) {
                         arr.push(bookKeyName[i])
+                        console.log(arr)
                     }
 
                 }
@@ -74,6 +75,7 @@ function getPitaka(pitakaName, key, callback) {
 
                     if (bookKeyName[i].includes(key[3][0])) {
                         arr.push(bookKeyName[i])
+                        console.log(arr)
                     }
                 }
 
@@ -143,8 +145,8 @@ function search() {
     var searchAnyting = document.getElementById('searchAnyting')
     var query = searchAnyting.value
     //console.log(query)
-    // searchOption is global variable from app.js
-    if (query !== '') {
+
+    function config() {
         searchStart = new Date().getTime();
         window.sessionStorage['query'] = query;
         resultListContainer.innerHTML = '';
@@ -161,6 +163,10 @@ function search() {
         hundredCount = 0;
         isItemLast = false;
         isItemFirst100 = true;
+    }
+    // searchOption is global variable from app.js
+    if (query !== '') {
+        
 
         switch (searchOption) {
             case 'all':
@@ -172,6 +178,7 @@ function search() {
                             // console.log(arr)
                             setTimeout(function () {
                                 android.fndText(arr, query)
+                                config();
                             }, 100)
                         } else {
                             alert('At least select one')
@@ -184,6 +191,7 @@ function search() {
                             // console.log(arr)
                             setTimeout(function () {
                                 android.fndText(arr, query)
+                                config();
                             }, 100)
                         } else {
                             alert('At least select one')
@@ -196,6 +204,7 @@ function search() {
                             // console.log(arr)
                             setTimeout(function () {
                                 android.fndText(arr, query)
+                                config();
                             }, 100)
                         } else {
                             alert('At least select one')
@@ -217,6 +226,7 @@ function search() {
                     try {
                         setTimeout(function () {
                             android.fndText(nikayaCollection, query)
+                            config();
                         }, 100)
                     } catch (error) {
 
@@ -229,7 +239,15 @@ function search() {
             case 'book':
                 // console.log(oneBook)
                 var oneBooks = Object.keys(oneBook)
-                android.fndText(oneBooks, query)
+
+                var selectedBook = Object.values(oneBook)
+
+                if (selectedBook.length !=0) {
+                    android.fndText(oneBooks, query)
+                    config();
+                } else {
+                    alert('At least select one')
+                }
                 break;
 
             default:

@@ -235,20 +235,20 @@ const dictionary = (dicName, listid, inputval, fun) => {
         }
     }
 
-    if (localStorage['divice'] == undefined) {
-        webdic(dicName, listid, inputval, fun)
-    } else {
-        //console.log(dicName.constructor.name)
-        myClick({
-            dicName: dicName,
-            listid: listid,
-            inputval: inputval,
-            fun: fun
-        }, [])
+    // if (localStorage['divice'] == undefined) {
+    //     webdic(dicName, listid, inputval, fun)
+    // } else {
+    //     //console.log(dicName.constructor.name)
+    //     myClick({
+    //         dicName: dicName,
+    //         listid: listid,
+    //         inputval: inputval,
+    //         fun: fun
+    //     }, [])
         
-    }
+    // }
 
-    
+    webdic(dicName, listid, inputval, fun)
     
     //return getallView(word, isZero, isZero)
 }

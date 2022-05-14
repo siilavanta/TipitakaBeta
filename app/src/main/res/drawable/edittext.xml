@@ -5,7 +5,8 @@
     android:opticalInsetBottom="@dimen/cardview_compat_inset_shadow"
     android:padding="2dp">
 
-    <solid android:color="#FFFFFF" />
+<!--    <solid android:color="@android:color/transparent" />-->
+    <solid android:color="@android:color/white" />
     <corners
         android:bottomRightRadius="2dp"
         android:bottomLeftRadius="2dp"

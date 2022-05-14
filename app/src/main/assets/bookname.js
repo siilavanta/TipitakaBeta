@@ -170,7 +170,6 @@ var books = {
         }
     },
     bangla: {
-
     },
     eng: {
 

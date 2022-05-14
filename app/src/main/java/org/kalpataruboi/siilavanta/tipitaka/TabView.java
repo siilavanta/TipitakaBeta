@@ -103,8 +103,21 @@ public class TabView extends android.app.TabActivity {
         spec.setContent(intent);
         tabHost.addTab(spec);
 
+        spec = tabHost.newTabSpec("tab9"); // Create a new TabSpec using tab host
+        spec.setIndicator("Tab 9"); // set the “CONTACT” as an indicator
+        intent = new Intent(this, TipitakaActivity.class);
+        spec.setContent(intent);
+        tabHost.addTab(spec);
+
+        spec = tabHost.newTabSpec("tab10"); // Create a new TabSpec using tab host
+        spec.setIndicator("Tab 10"); // set the “CONTACT” as an indicator
+        intent = new Intent(this, TipitakaActivity.class);
+        spec.setContent(intent);
+        tabHost.addTab(spec);
+
         //set tab which one you want to open first time 0 or 1 or 2
         tabHost.setCurrentTab(0);
+
 
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override

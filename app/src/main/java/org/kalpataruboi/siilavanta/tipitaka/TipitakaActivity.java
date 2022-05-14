@@ -659,7 +659,7 @@ private void gotoData(String tableName, String i, String chaptxt, String paranum
         public  void share(){
             Intent shareinginten = new Intent( Intent.ACTION_SEND );
             shareinginten.setType( "text/plain" );
-            String shareBody = "T Pitaka\nhttps://play.google.com/store/apps/details?id=" + getPackageName();
+            String shareBody = "Tipitaka\nhttps://play.google.com/store/apps/details?id=" + getPackageName();
             shareinginten.putExtra( Intent.EXTRA_SUBJECT,"Tpitaka" );
             shareinginten.putExtra( Intent.EXTRA_TEXT, shareBody );
             startActivity(Intent.createChooser( shareinginten,"Share With" ));
@@ -770,24 +770,25 @@ private void gotoData(String tableName, String i, String chaptxt, String paranum
         parm.leftMargin = 22;
         parm.bottomMargin = 5;
         parm.topMargin = 5;
+
         findBox = new EditText(this);
         findBox.setFocusable(true);
         findBox.setText(findboxText);
         findBox.setMinEms(80);
         findBox.setSingleLine(true);
-
+        findBox.setTextColor(getResources().getColor(R.color.black));
         // request focus
         findBox.requestFocus();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(findBox, InputMethodManager.SHOW_FORCED);
 
-        // findBox.setBackgroundColor(getResources().getColor(R.color.background_buttom));
+        //findBox.setBackgroundColor(getResources().getColor(R.color.background_buttom));
         findBox.setBackground(getResources().getDrawable(R.drawable.edittext));
         findBox.setPadding(10, 1,5,1);
         findBox.setHint("এই পেইজে খুঁজুন");
         findBox.setTextSize(16);
         findBox.setLayoutParams(parm);
-        Log.d(TAG, "search: " + findboxText);
+      //  Log.d(TAG, "search: " + findboxText);
         //tipitaka.findNext(true);
         sv();
 
@@ -1064,15 +1065,20 @@ private void gotoData(String tableName, String i, String chaptxt, String paranum
         }, 2000);
     }
 
+    int option = 0;
     @Override
     public boolean dispatchKeyEvent(KeyEvent event){
+
+         if (event.getAction() == KeyEvent.ACTION_DOWN ){
+//
+        }
 
         if (event.getAction() == KeyEvent.ACTION_DOWN ){
 
             switch (event.getKeyCode()){
                 case  KeyEvent.KEYCODE_F:
              //   Log.d(TAG, "dispatchKeyEvent: " + event.getKeyCode());
-                if(!isFIndboxOpen){
+                if(!isFIndboxOpen ){
                     search();
                     fbtn.hide();
                     isFIndboxOpen = true;
