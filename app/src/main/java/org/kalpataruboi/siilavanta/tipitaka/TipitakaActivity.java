@@ -419,9 +419,8 @@ public void unzipFinish(){
         public void run() {
             tipitaka.evaluateJavascript("document.getElementById('loadertext').innerHTML = 'Loading... '", null);
             tipitaka.evaluateJavascript("document.getElementById('loadermain').style.display = \"none\"", null);
-            tipitaka.evaluateJavascript("window.localStorage.setItem('unzip', '1.0.beta_2')", null);
-            tipitaka.evaluateJavascript("alert('Unzip done')", null);
-
+            tipitaka.evaluateJavascript("window.localStorage.setItem('unzip', '1.0.beta_4')", null);
+            tipitaka.evaluateJavascript("alert('Unzip Done')", null);
 
         }
     });
