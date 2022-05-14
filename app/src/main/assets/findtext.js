@@ -164,10 +164,10 @@ function search() {
         isItemLast = false;
         isItemFirst100 = true;
     }
-    // searchOption is global variable from app.js
+    
     if (query !== '') {
         
-
+// searchOption is global variable from app.js
         switch (searchOption) {
             case 'all':
                 var all = Object.entries(allpitakaSelection[allpitakaSelectionKey])

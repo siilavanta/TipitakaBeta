@@ -589,6 +589,29 @@ private void gotoData(String tableName, String i, String chaptxt, String paranum
                 }
             }.start();
         }
+
+
+        @android.webkit.JavascriptInterface
+        public void wordBreakup(String query, String tableName){
+            new Thread() {
+                @Override
+                public void run() {
+                    Breakup.getBreakupWord(tipitaka, getApplicationContext(), tableName, query);
+
+                }
+            }.start();
+        }
+
+        @android.webkit.JavascriptInterface
+        public void wordGrammar(String query, String tableName){
+            new Thread() {
+                @Override
+                public void run() {
+                    Breakup.getWordGrammar(tipitaka, getApplicationContext(), tableName, query);
+
+                }
+            }.start();
+        }
         @android.webkit.JavascriptInterface
         public String zeroChapter(String tableName){
             DatabaseHelper databaseHelper = new DatabaseHelper(context);
@@ -1016,17 +1039,13 @@ private void gotoData(String tableName, String i, String chaptxt, String paranum
                         jsmenuhide(); jstablehide(); jsmorehide(); jssettingPanelhede(); jstpsearchhide();
                         tipitaka.evaluateJavascript("noteclose()", null);
 
-                    }
-                    else {
+                    } else {
                         jsmenuhide(); jstablehide(); jsmorehide(); jssettingPanelhede(); jstpsearchhide();
                         onBackPressed();
                         tipitaka.evaluateJavascript("noteclose()", null);
                     }
-
                     return true;
             }
-
-
         }
 
 

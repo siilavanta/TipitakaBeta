@@ -864,7 +864,7 @@ padding-bottom: 5px;
     z-index: 300;
     top: 0px;
     width: -webkit-fill-available;
-    height: 200px;
+    height: 330px;
     background-color: white;
     position: fixed;
    
@@ -934,16 +934,33 @@ background-repeat: no-repeat;
   background-color: white;  
   color: black;
 }
+.wordbreak{
+    position: fixed;
+    width: 98%;
+    height: 110px;
+    overflow-y: scroll;
+    padding-left: 10px;
+    z-index: 100;
+    background-color: white;
+    border-bottom: 1px solid royalblue;
+}
+.break p {
+    padding: 3px 0px;
+    margin: 0px;
+}
 .dicmeaning{
     display: none; 
     width: 98%; 
-    height: 130px; 
+    height: 150px; 
     overflow: scroll; 
     z-index: 0; 
     position: fixed; 
     top: 50px; 
     padding-bottom: 20px;
     margin-left: 1%;
+    margin-top: 110px;
+    background-color: white;
+    z-index: 99;
 }
 .dicmeaning div{
     padding-bottom: 40px;
@@ -956,7 +973,7 @@ background-repeat: no-repeat;
     display: flex;
     color: black;
     position: fixed;
-    margin-top: 166px;
+    margin-top: 260px;
     z-index: 100;
     flex-direction: row;
     justify-content: center;
@@ -991,7 +1008,7 @@ background-repeat: no-repeat;
 }
 #word-details{
 
- margin-top: 40px;
+ padding-top: 40px;
  font-size: 0.95em;
 
 }

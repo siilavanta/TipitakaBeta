@@ -66,6 +66,8 @@ function poppuView() {
     finalWord = finalWord.replace('”', '')
     finalWord = finalWord.replace('“', '')
     finalWord = finalWord.replace('’', '')
+    finalWord = finalWord.replace('’', '')
+    finalWord = finalWord.replace('’', '')
     finalWord = finalWord.replace('‘', '')
     finalWord = finalWord.replace('?', '')
     finalWord = finalWord.replace('-', '')
@@ -81,6 +83,18 @@ function poppuView() {
     // dic(finalWord)
     try {
         myClick({}, [finalWord])
+        
+        if (event.target.className == 'break') {
+            android.wordGrammar(finalWord, 'dpr')
+           // android.wordBreakup(finalWord, 'breakup')
+            console.log(event.target.className)
+        } else if (event.target.className == 'submean') {
+            android.wordGrammar(finalWord, 'dpr')
+            
+        } else {
+            android.wordGrammar(finalWord, 'dpr')
+            android.wordBreakup(finalWord, 'breakup')
+        }
         isNextOrPrev = false
     } catch (error) {
         
@@ -91,7 +105,18 @@ function poppuView() {
     inputid.value = finalWord
 }
 
+
 var inputid = document.getElementById('inputid')
+
+inputid.addEventListener('keydown', function (event) {
+    var key = event.key
+    if (key == 'Enter') {
+        android.wordGrammar(inputid.value, 'dpr')
+        android.keyboardHideWeb()
+    } else {
+        //console.log(key)
+    }
+})
 
 function clickHandeler(fn, delay) {
     let timeoutId;
@@ -191,7 +216,8 @@ function setDicView(dicName, data, query) {
 
                 pakage.push(makeElement('p', {
                     class: 'mean',
-                    innerHTML: `<b>${word} : </b><span>${mean}</span>`
+                    onclick: 'poppuView()',
+                    innerHTML: `<b>${word} : </b><span class='submean'>${mean}</span>`
                 }).outerHTML)
             }
             
@@ -200,7 +226,6 @@ function setDicView(dicName, data, query) {
             document.getElementById(`${ditails}`).innerHTML = query + ' : Not Found'
         }
 
-        
     }
 
     
@@ -280,3 +305,63 @@ var getPopHistory = new popHistory()
 // getPopHistory.push('one')
 // getPopHistory.push('two')
 // getPopHistory.push('three')
+var breakup = document.getElementById('breakup');
+var grammar = document.getElementById('dpr');
+
+function setBreakupView(tableName, data, query) {
+   // var data = []
+    var name = ''
+    var dataHTML = []
+    for (var i = 0; i < data.length; i++){
+        //console.log(tableName)
+        tableName == 'dpr' ? name = 'grammar' : name = 'breakup'
+        dataHTML.push('<p class="break"><b>' + name + '</b> : ' + replaceWord(data[i])+'</p>')
+    }
+    document.getElementById(tableName).innerHTML = dataHTML.join('')
+}
+
+function replaceWord(word) {
+
+    var reg = new RegExp("]", 'gi')
+    word = word.replace(reg, '] ')
+    word = word.split(' ')
+    for (var i = 0; i < word.length; i++) {
+        if (word[i].endsWith(']')) {
+             //console.log([word[i], i])
+           
+            word[i] = replaceCase(word[i]);
+           // replaceCase(word[i]);
+           // console.log()
+            // console.log(b2.value)
+        }
+    }
+    
+    return word.join(' ');
+}
+
+function replaceCase(word) {
+    var newWord = []
+    var keys = Object.keys(caseOfWord)
+    for (var i = 0; i < keys.length; i++){
+        if (word == keys[i] + ']') {
+            
+            word = caseOfWord[keys[i]][2] + ']'
+            //console.log(caseOfWord[keys[i]][2])
+            return word;
+        } else {
+            word = word
+        }
+    }
+
+    return word;
+}
+var caseOfWord = {
+    'nom': ['Nominative', 'কর্তৃকারক', 'কর্তৃ'],
+    'voc': ['Voctive', 'সম্বোধনপদ', 'সম্বোধন'],
+    'acc': ['Accusative', 'কর্মকারক', 'কর্ম'],
+    'ins': ['Instrumental', 'করণকারক', 'করণ'],
+    'dat': ['Dative', 'সম্প্রদানকারক', 'সম্প্রদান'],
+    'abl': ['Ablative', 'অপদানকারক', 'অপদান'],
+    'gen': ['Genitive', 'সম্বন্ধপদ', 'সম্বন্ধ'],
+    'loc': ['Locative', 'অধিকরণ কারক', 'অধিকরণ'],
+}

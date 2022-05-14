@@ -44,22 +44,25 @@ try {
     }
     compareid.addEventListener('click', toggleframe, false);
 
-    let toggle = true;
-    const togglehomemenu = () => {
-        if (toggle) {
-            //homemenu.style.display = 'none';
-            homepage.style.display = 'block'
-            loaddata.style.display = 'none'
-        } else {
-            // homemenu.style.display = 'block';
-            homepage.style.display = 'none'
-            loaddata.style.display = 'block'
 
-        }
-        toggle = !toggle;
-    }
-    homeid.addEventListener('click', togglehomemenu, false);
+    
 } catch (error) {
+
+}
+
+let toggle = true;
+const togglehomemenu = () => {
+    if (toggle) {
+        //homemenu.style.display = 'none';
+        homepage.style.display = 'block'
+        loaddata.style.display = 'none'
+        toggle = false;
+    } else {
+        // homemenu.style.display = 'block';
+        homepage.style.display = 'none'
+        loaddata.style.display = 'block'
+        toggle = true;
+    }
 
 }
 
@@ -203,6 +206,9 @@ var arr = [mula_1_1]
 //Click the openbook(evt, classid) to invoke bookdata filename by appenndchild a script element.
 var tipiEvent
 function book(event, filename) {
+    // for read view 
+    toggle = true;
+
     tipiEvent = event
     tipiEvent['tipi'] = {
         currentBookKey: filename
@@ -1222,3 +1228,16 @@ function bookOne(event) {
     console.log(oneBook)
 }
 
+function clickHandel() {
+    return function () {
+        var man = arguments[0]()
+        if (man) {
+            console.log(man)
+        }
+    }
+}
+var miClick = clickHandel()
+
+miClick(function () {
+    return 'yes'
+})

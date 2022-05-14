@@ -16,6 +16,7 @@ function setBookTemplate(bookNameKey, data) {
 
         // dev.value = temDiv.outerHTML
     }
+
     item = temDiv.children[0].outerHTML //.setAttribute('class', ``)
 
 
@@ -26,6 +27,8 @@ function setBookTemplate(bookNameKey, data) {
             id: "cht" + chapnum,
             class: 'chaptxt'
         }).outerHTML)
+
+       
     }
 
     if (item.includes('chaphead')) {
@@ -68,15 +71,31 @@ function setBookTemplate(bookNameKey, data) {
 function replaceFn(str, chapnum, titlenum, subheadnum) {
     if (str.includes("ch_")) {
         str = str.replace('_c', '_c ' + chapnum)
+        str = getTxt(str)
     } else if (str.includes("tl_")) {
         str = str.replace('_c', '_c ' + split(titlenum))
+        str = getTxt(str)
     } else if (str.includes("sh_")) {
         str = str.replace('_c', '_c ' + split(subheadnum))
+        str = getTxt(str)
     }
     function split(str) {
         str = str.split('_')
         return str.join(' ')
     }
+
+   
+
+    function getTxt(str) {
+        var onlyTxt = makeElement('div', {
+            innerHTML: str
+        })
+        //console.log(onlyTxt.children[0].textContent)
+        var text = onlyTxt.children[0].textContent
+        onlyTxt.children[0].innerHTML = text
+        return onlyTxt.children[0].outerHTML
+    }
+
     return str;
 
 }

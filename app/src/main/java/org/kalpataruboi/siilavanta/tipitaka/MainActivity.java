@@ -171,9 +171,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 }
-
-
-
             }
         }else {
             Log.d(TAG, "last ele: " + tableName +" => not found ");

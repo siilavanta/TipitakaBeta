@@ -30,7 +30,7 @@
         <section class="navleft">
             <div class="navleft-item" id="menuId" title="Menu" onclick="menushow()"><i
                         class="navgi_ic material-icons">menu</i></div>
-            <div class="navleft-item" title="Home" id="homeid"><i class="navgi_ic material-icons">&#xe88a;</i> </div>
+            <div class="navleft-item" onclick="togglehomemenu()" title="Home" id="homeid"><i class="navgi_ic material-icons">&#xe88a;</i> </div>
             <div class="navleft-item" style="flex: none;" id="booknameid" onclick="gettxt()">ত্রিপিটক</div>
         </section>
 
@@ -492,6 +492,7 @@
                 <li class="otherbn" onclick="book(event, 'otherbn_1_22')"> কুশল প্রশ্নোত্তর </li>
                 <li class="otherbn" onclick="book(event, 'otherbn_1_23')"> মহামানব গৌতম বুদ্ধ </li>
                 <li class="otherbn" onclick="book(event, 'otherbn_1_24')"> পরিত্রাণ সূত্র পঞ্চাশক </li>
+                <a href="./a bibidha.html">বিবিধ বাংলা</a>
                 <br><br><br><br><br><br><br><br>
             </div>
 
@@ -596,6 +597,7 @@
                     <div id="list"></div>
 
                 </div>
+                <a href="./a bibidha.html">বিবিধ বাংলা</a>
                 <div class="name"></div>
                 <p class="kpname">কল্পতরু</p>
                 <p class="kpname">রাঙামাটি ৪৫০০, বাংলাদেশ</p>
@@ -608,7 +610,7 @@
         </div>
 
 
-        <div id="comparepanel"> </div>
+        <div style="display: none;" id="comparepanel"> </div>
         <div id="palibook"></div>
         <div id="banglabook"></div>
         <div id="englishbook"></div>
@@ -709,9 +711,6 @@
                 
                 <div id="wordname"><input type="search" placeholder="Dictionary Search" id="inputid" onkeyup="frominput()"></div>
                 <!-- <div style="display: none;" id="search"><i class="material-icons">search</i></div> -->
-                
-                
-
                 <div id="dicnamemain">
                     <div class="dicname" onclick="dicoption(event, 'ppdic')" id="pp_all">PPD</div>
                     <div class="dicname" onclick="dicoption(event, 'palldic')" id="p_all">PED</div>
@@ -722,13 +721,15 @@
 
                 </div>
             </div>
-            <div class="dicnav">
-                <div onclick="getPopHistory.hasPrevius()"><i class="ic-s material-icons">chevron_left</i></div>
-                <div id="dic-close"><i class="material-icons">close</i></div>
-                <div onclick="getPopHistory.hasNext()"><i class="ic-s material-icons">chevron_right</i></div>
-            </div>
+           
             
             <div id="word-details">
+                <div class="wordbreak">
+                    <section onclick="poppuView()" id="breakup"></section>
+                    <section id="dpr"></section>
+
+
+                </div>
                 <div class="dicmeaning" id="ppdic">
                     <section id="ppdic_count"></section>
                     <div id="ppdic_details"></div>
@@ -755,7 +756,11 @@
                     <div id="ealldic_details"></div>
                 </div>
             </div>
-
+            <div class="dicnav">
+                <div onclick="getPopHistory.hasPrevius()"><i class="ic-s material-icons">chevron_left</i></div>
+                <div id="dic-close"><i class="material-icons">close</i></div>
+                <div onclick="getPopHistory.hasNext()"><i class="ic-s material-icons">chevron_right</i></div>
+            </div>
         </div>
 
         <div id="searchPanel">
