@@ -65,6 +65,7 @@ public class Breakup extends SQLiteOpenHelper {
                     webView.evaluateJavascript("setBreakupView('" + tableName + "'," + jsArray+ ", '" +query+"')", null);
                 }
             });
+
            // cursor.close();
            // db.close();
         }else {
